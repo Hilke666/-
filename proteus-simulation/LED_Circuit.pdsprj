@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Proteus 8.0 Project File -->
+<Project Version="8.0" SchemaVersion="1.0">
+  <General>
+    <Name>LED Circuit Simulation</Name>
+    <Description>Simple LED circuit with 5V power supply for Proteus simulation</Description>
+    <Author>Hilke666</Author>
+    <Company>Educational</Company>
+    <CreatedDate>2026-06-27</CreatedDate>
+    <ModifiedDate>2026-06-27</ModifiedDate>
+  </General>
+  
+  <Documents>
+    <SchematicDocument>
+      <FileName>LED_Circuit.dsn</FileName>
+      <Enabled>true</Enabled>
+      <SheetCount>1</SheetCount>
+    </SchematicDocument>
+    <PCBDocument>
+      <Enabled>false</Enabled>
+    </PCBDocument>
+  </Documents>
+  
+  <Settings>
+    <ProjectPath>./</ProjectPath>
+    <LibraryPath>./</LibraryPath>
+    
+    <!-- Simulation Configuration -->
+    <SimulationSettings>
+      <Enabled>true</Enabled>
+      <AnalysisType>Transient</AnalysisType>
+      <StartTime>0s</StartTime>
+      <EndTime>1s</EndTime>
+      <TimeStep>0.1ms</TimeStep>
+      <MaxStepSize>1ms</MaxStepSize>
+      <Tolerance>1e-6</Tolerance>
+      <UseInitialConditions>true</UseInitialConditions>
+      <AutoTimeStep>true</AutoTimeStep>
+      <PreserveInitialConditions>true</PreserveInitialConditions>
+    </SimulationSettings>
+    
+    <!-- Component Libraries -->
+    <Libraries>
+      <Library Name="Resistors" Enabled="true"/>
+      <Library Name="Capacitors" Enabled="true"/>
+      <Library Name="Inductors" Enabled="true"/>
+      <Library Name="Diodes" Enabled="true"/>
+      <Library Name="LEDs" Enabled="true"/>
+      <Library Name="Connectors" Enabled="true"/>
+      <Library Name="Power" Enabled="true"/>
+    </Libraries>
+    
+    <!-- Display Settings -->
+    <Display>
+      <ShowVoltageNodes>true</ShowVoltageNodes>
+      <ShowCurrentPaths>true</ShowCurrentPaths>
+      <ShowPowerDissipation>true</ShowPowerDissipation>
+      <VoltageProbeColor>Red</VoltageProbeColor>
+      <CurrentProbeColor>Blue</CurrentProbeColor>
+      <AnimateLED>true</AnimateLED>
+      <GridSize>10</GridSize>
+      <ShowGrid>true</ShowGrid>
+    </Display>
+  </Settings>
+  
+  <!-- Project Metadata -->
+  <Metadata>
+    <Version>1.0</Version>
+    <Category>Educational</Category>
+    <Difficulty>Beginner</Difficulty>
+    <Keywords>LED, Resistor, Power Supply, DC Circuit</Keywords>
+    <Tags>
+      <Tag>LED Circuit</Tag>
+      <Tag>Simple</Tag>
+      <Tag>Educational</Tag>
+      <Tag>Proteus 8.0</Tag>
+    </Tags>
+  </Metadata>
+</Project>

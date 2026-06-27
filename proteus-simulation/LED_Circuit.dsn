@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Proteus 8.0 LED Circuit Schematic File -->
+<Design Version="8.0">
+  <Header>
+    <Title>Simple LED Circuit</Title>
+    <Author>Hilke666</Author>
+    <Company>Educational Project</Company>
+    <Created>2026-06-27</Created>
+    <Description>A basic LED circuit with 5V power supply, 220Ω current-limiting resistor, and red LED</Description>
+  </Header>
+  
+  <Schematic>
+    <Sheet Number="1" Name="Main Circuit">
+      <!-- Components Definition -->
+      <Components>
+        <!-- Power Supply: VCC 5V -->
+        <Component ID="U1" Name="VCC" Value="5V" X="50" Y="100" Rotation="0">
+          <Pin Number="1" Name="+" X="50" Y="100"/>
+        </Component>
+        
+        <!-- Resistor R1: 220Ω -->
+        <Component ID="R1" Name="Resistor" Value="220" X="150" Y="100" Rotation="0">
+          <Pin Number="1" Name="1" X="130" Y="100"/>
+          <Pin Number="2" Name="2" X="170" Y="100"/>
+          <Attribute Name="Package">0805</Attribute>
+          <Attribute Name="Tolerance">±5%</Attribute>
+        </Component>
+        
+        <!-- LED D1: Red LED -->
+        <Component ID="D1" Name="LED" Value="RED" X="280" Y="100" Rotation="0">
+          <Pin Number="1" Name="A" X="260" Y="100"/>
+          <Pin Number="2" Name="K" X="300" Y="100"/>
+          <Attribute Name="Color">Red</Attribute>
+          <Attribute Name="Vf">2.0V</Attribute>
+          <Attribute Name="If">20mA</Attribute>
+        </Component>
+        
+        <!-- Ground: GND -->
+        <Component ID="GND1" Name="GND" Value="" X="280" Y="200" Rotation="0">
+          <Pin Number="1" Name="-" X="280" Y="200"/>
+        </Component>
+      </Components>
+      
+      <!-- Connections/Nets -->
+      <Nets>
+        <!-- Net 1: VCC to R1 -->
+        <Net ID="1" Name="VCC">
+          <Node Component="U1" Pin="1"/>
+          <Node Component="R1" Pin="1"/>
+          <Wire StartX="50" StartY="100" EndX="130" EndY="100" Width="2"/>
+        </Net>
+        
+        <!-- Net 2: R1 to LED -->
+        <Net ID="2" Name="NET1">
+          <Node Component="R1" Pin="2"/>
+          <Node Component="D1" Pin="1"/>
+          <Wire StartX="170" StartY="100" EndX="260" EndY="100" Width="2"/>
+        </Net>
+        
+        <!-- Net 3: LED to GND -->
+        <Net ID="3" Name="GND">
+          <Node Component="D1" Pin="2"/>
+          <Node Component="GND1" Pin="1"/>
+          <Wire StartX="300" StartY="100" EndX="280" EndY="150" Width="2"/>
+          <Wire StartX="280" StartY="150" EndX="280" EndY="200" Width="2"/>
+        </Net>
+      </Nets>
+      
+      <!-- Labels and Annotations -->
+      <Labels>
+        <Label X="50" Y="80" Text="5V" FontSize="12"/>
+        <Label X="150" Y="80" Text="220Ω" FontSize="12"/>
+        <Label X="280" Y="80" Text="LED" FontSize="12"/>
+        <Label X="280" Y="220" Text="GND" FontSize="12"/>
+      </Labels>
+    </Sheet>
+  </Schematic>
+  
+  <!-- Simulation Settings -->
+  <SimulationSettings>
+    <AnalysisType>Transient</AnalysisType>
+    <StartTime>0</StartTime>
+    <EndTime>1</EndTime>
+    <TimeStep>0.0001</TimeStep>
+    <UseInitialConditions>true</UseInitialConditions>
+    <PreserveBias>false</PreserveBias>
+  </SimulationSettings>
+</Design>

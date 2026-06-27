@@ -1,0 +1,88 @@
+# Proteus 8.0 LED电路仿真配置文件
+# 在Proteus中可以使用此配置进行仿真参数设置
+
+## 基本仿真参数
+[Simulation Settings]
+SimulationType = Transient
+SimulationTime = 1s
+TimeStep = 0.1ms
+MaxStepSize = 1ms
+Tolerance = 1e-6
+InitialConditions = Use initial conditions
+
+## 电源配置
+[Power Supply]
+SupplyVoltage = 5V
+SupplyTolerance = ±5%
+InternalResistance = 0.1Ω
+
+## 元器件参数
+[Components]
+# 电阻 R1
+R1_Value = 220Ω
+R1_Tolerance = ±5%
+R1_Type = Carbon Film
+R1_PowerRating = 1/4W (250mW)
+
+# LED D1
+D1_Type = Red LED
+D1_ForwardVoltage = 2.0V (typical)
+D1_ForwardVoltage_Min = 1.8V
+D1_ForwardVoltage_Max = 2.2V
+D1_ForwardCurrent_Typ = 20mA
+D1_MaxForwardCurrent = 30mA
+D1_ReverseBreakdownVoltage = 5V
+D1_Color = Red
+D1_LuminousIntensity = 500mcd (typical)
+
+## 仿真分析
+[Analysis]
+AnalysisType = Transient Analysis
+StartTime = 0s
+EndTime = 1s
+Resolution = 1000 points
+AutoTimeStep = YES
+
+## 显示参数
+[Display]
+ShowVoltageNodes = YES
+ShowCurrentPaths = YES
+ShowPowerDissipation = YES
+VoltageProbeColor = Red
+CurrentProbeColor = Blue
+AnimateLED = YES
+
+## 高级参数（可选）
+[Advanced]
+UseNonlinearIterativeMethod = YES
+MaxIterations = 100
+ConvergenceTolerance = 1e-6
+AutomaticTimeStepControl = YES
+PreserveInitialConditions = YES
+
+## 期望输出结果
+[Expected Results]
+VCC_Voltage ≈ 5.0V
+R1_Voltage ≈ 3.64V
+D1_Voltage ≈ 2.0V
+D1_Current ≈ 13.6mA
+R1_PowerDissipation ≈ 40.7mW
+D1_PowerDissipation ≈ 27.2mW
+TotalPowerConsumption ≈ 68mW
+
+## 仿真提示
+[Tips]
+1. 运行仿真前确保所有元件已正确连接
+2. 使用"Probe"工具查看各节点的电压值
+3. 使用"Ammeter"工具查看电路电流
+4. LED正极接正电压，负极接地
+5. 220Ω电阻确保LED工作在安全的电流范围内
+6. 可以双击元件修改其参数值
+7. 使用快捷键 Ctrl+R 快速启动/停止仿真
+
+## 配置步骤
+# 在Proteus中配置这些参数的方法：
+# 1. 点击"Simulation" → "Edit Simulation Model"
+# 2. 在"Transient"标签页中配置时间参数
+# 3. 在各个元件属性中设置具体数值
+# 4. 点击"Run"开始仿真
