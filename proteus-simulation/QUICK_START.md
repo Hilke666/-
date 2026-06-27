@@ -1,18 +1,18 @@
-# 快速开始 - Proteus 8.0 专业版
+# 🚀 快速开始指南 - Proteus 8.9
 
-## ⚡ 10秒开始仿真
+## ⚡ 3步启动仿真
 
-### 步骤1：打开
+### 1️⃣ 打开项目
 ```
-File → Open Project → LED_Circuit.dpj → Open
-```
-
-### 步骤2：运行
-```
-点击 ▶ 或按 Ctrl+R
+File → Open Project → LED_Circuit_89.dpj → Open
 ```
 
-### 步骤3：完成
+### 2️⃣ 运行仿真
+```
+点击绿色 ▶ 或 Ctrl+R
+```
+
+### 3️⃣ 观察结果
 ```
 LED显示红色 = 成功 ✅
 ```
@@ -27,17 +27,29 @@ LED显示红色 = 成功 ✅
 | R1压降 | 3.64V |
 | LED压降 | 2.0V |
 | 电流 | 13.6mA |
-| LED状态 | 亮(红色) |
+| LED | 亮(红) |
 
 ---
 
-## 🔧 常用快捷键
+## 🎛️ 快捷键
 
 | 快捷键 | 功能 |
 |--------|------|
-| Ctrl+R | 运行/停止仿真 |
+| Ctrl+R | 运行/停止 |
 | Ctrl+S | 保存 |
 | Delete | 删除 |
 | R | 旋转 |
 
-详细说明请见 README_PROFESSIONAL.md
+---
+
+## 📍 文件位置
+
+**GitHub**: https://github.com/Hilke666/-/tree/main/proteus-simulation
+
+**主文件**: LED_Circuit_89.dpj
+
+---
+
+✅ **现在可以开始仿真了！**
+
+详细说明见 README.md

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProteusDesign Version="8.9">
+    <ProjectInfo>
+        <Name>LED Circuit Simulation</Name>
+        <Description>Simple LED Circuit - 5V Power Supply with 220Ω Resistor and Red LED</Description>
+        <Author>Hilke666</Author>
+        <Company>Educational</Company>
+        <Version>8.9</Version>
+        <CreatedDate>2026-06-27</CreatedDate>
+        <ModifiedDate>2026-06-27</ModifiedDate>
+    </ProjectInfo>
+
+    <SimulationSettings>
+        <AnalysisType>Transient</AnalysisType>
+        <StartTime>0</StartTime>
+        <EndTime>1</EndTime>
+        <TimeStep>0.0001</TimeStep>
+        <MaxStepSize>0.001</MaxStepSize>
+        <Tolerance>1e-6</Tolerance>
+        <UseInitialConditions>true</UseInitialConditions>
+        <AutoTimeStep>true</AutoTimeStep>
+        <Temperature>25</Temperature>
+    </SimulationSettings>
+
+    <Schematic>
+        <Sheet Number="1" Name="Main Circuit">
+            <Components>
+                <!-- Power Supply: VCC 5V -->
+                <Component ID="U1" Reference="VCC" Type="VSRC" Value="5V" X="100" Y="150">
+                    <Property Name="DC_Value">5V</Property>
+                    <Property Name="AC_Value">0V</Property>
+                    <Pin Number="1" Name="+" X="100" Y="150"/>
+                    <Pin Number="2" Name="-" X="100" Y="200"/>
+                </Component>
+
+                <!-- Resistor: 220 Ohm -->
+                <Component ID="R1" Reference="R1" Type="RES" Value="220" X="250" Y="150">
+                    <Property Name="Tolerance">5%</Property>
+                    <Property Name="Package">0805</Property>
+                    <Pin Number="1" Name="1" X="220" Y="150"/>
+                    <Pin Number="2" Name="2" X="280" Y="150"/>
+                </Component>
+
+                <!-- LED: Red -->
+                <Component ID="D1" Reference="D1" Type="LED" Value="RED" X="400" Y="150">
+                    <Property Name="Color">Red</Property>
+                    <Property Name="Vf">2.0V</Property>
+                    <Property Name="If">20mA</Property>
+                    <Property Name="Max_Current">30mA</Property>
+                    <Pin Number="1" Name="A" X="380" Y="150"/>
+                    <Pin Number="2" Name="K" X="420" Y="150"/>
+                </Component>
+
+                <!-- Ground 1 -->
+                <Component ID="GND1" Reference="GND1" Type="GND" X="100" Y="350">
+                    <Pin Number="1" Name="-" X="100" Y="350"/>
+                </Component>
+
+                <!-- Ground 2 -->
+                <Component ID="GND2" Reference="GND2" Type="GND" X="400" Y="350">
+                    <Pin Number="1" Name="-" X="400" Y="350"/>
+                </Component>
+            </Components>
+
+            <Nets>
+                <!-- VCC Net -->
+                <Net ID="1" Name="VCC">
+                    <Node Component="U1" Pin="1"/>
+                    <Node Component="R1" Pin="1"/>
+                    <Wire StartX="100" StartY="150" EndX="220" EndY="150" Width="2"/>
+                </Net>
+
+                <!-- R1 to LED Net -->
+                <Net ID="2" Name="NET1">
+                    <Node Component="R1" Pin="2"/>
+                    <Node Component="D1" Pin="1"/>
+                    <Wire StartX="280" StartY="150" EndX="380" EndY="150" Width="2"/>
+                </Net>
+
+                <!-- GND Net -->
+                <Net ID="3" Name="GND">
+                    <Node Component="U1" Pin="2"/>
+                    <Node Component="D1" Pin="2"/>
+                    <Node Component="GND1" Pin="1"/>
+                    <Node Component="GND2" Pin="1"/>
+                    <Wire StartX="100" StartY="200" EndX="100" EndY="350" Width="2"/>
+                    <Wire StartX="420" StartY="150" EndX="420" EndY="250" Width="2"/>
+                    <Wire StartX="420" StartY="250" EndX="400" EndY="350" Width="2"/>
+                </Net>
+            </Nets>
+
+            <Labels>
+                <Label X="100" Y="120" Text="5V" FontSize="12" Color="Black"/>
+                <Label X="250" Y="120" Text="220Ω" FontSize="12" Color="Black"/>
+                <Label X="400" Y="120" Text="LED" FontSize="12" Color="Red"/>
+                <Label X="100" Y="370" Text="GND" FontSize="12" Color="Black"/>
+                <Label X="400" Y="370" Text="GND" FontSize="12" Color="Black"/>
+            </Labels>
+        </Sheet>
+    </Schematic>
+
+    <Libraries>
+        <Library Name="Resistors" Enabled="true"/>
+        <Library Name="Capacitors" Enabled="true"/>
+        <Library Name="Inductors" Enabled="true"/>
+        <Library Name="Diodes" Enabled="true"/>
+        <Library Name="LEDs" Enabled="true"/>
+        <Library Name="Power_Sources" Enabled="true"/>
+        <Library Name="Connectors" Enabled="true"/>
+    </Libraries>
+
+    <DisplaySettings>
+        <ShowGridlines>true</ShowGridlines>
+        <GridSize>10</GridSize>
+        <ShowNodeNumbers>false</ShowNodeNumbers>
+        <ShowNetNames>true</ShowNetNames>
+        <ShowPowerDissipation>true</ShowPowerDissipation>
+        <ShowCurrent>true</ShowCurrent>
+        <ShowVoltage>true</ShowVoltage>
+    </DisplaySettings>
+</ProteusDesign>
