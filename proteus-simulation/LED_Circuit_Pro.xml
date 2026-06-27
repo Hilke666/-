@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProteusProject>
+  <ProjectInfo>
+    <Name>LED Circuit Simulation</Name>
+    <Description>Simple LED circuit with 5V power supply for Proteus 8.0 Professional Edition</Description>
+    <Author>Hilke666</Author>
+    <Company>Educational</Company>
+    <Version>1.0</Version>
+    <CreatedDate>2026-06-27</CreatedDate>
+    <ModifiedDate>2026-06-27</ModifiedDate>
+  </ProjectInfo>
+  
+  <ProjectSettings>
+    <SimulationEngine>VSIM</SimulationEngine>
+    <DefaultAnalysis>Transient</DefaultAnalysis>
+    <DefaultWorkspace>SchematicCapture</DefaultWorkspace>
+  </ProjectSettings>
+  
+  <Schematic>
+    <Sheet Number="1" Name="Main Circuit" Width="800" Height="600">
+      <Components>
+        <Component Name="U1" Type="VSRC" Value="5V" X="100" Y="100">
+          <Pin Name="+" Number="1" X="100" Y="100"/>
+          <Pin Name="-" Number="2" X="100" Y="150"/>
+        </Component>
+        
+        <Component Name="R1" Type="RES" Value="220" X="200" Y="100">
+          <Pin Name="1" Number="1" X="180" Y="100"/>
+          <Pin Name="2" Number="2" X="220" Y="100"/>
+          <Property Name="Tolerance">5%</Property>
+        </Component>
+        
+        <Component Name="D1" Type="LED" Value="RED" X="320" Y="100">
+          <Pin Name="A" Number="1" X="300" Y="100"/>
+          <Pin Name="K" Number="2" X="340" Y="100"/>
+          <Property Name="Color">Red</Property>
+          <Property Name="Vf">2.0V</Property>
+          <Property Name="If">20mA</Property>
+        </Component>
+        
+        <Component Name="GND1" Type="GND" X="100" Y="200">
+          <Pin Name="1" Number="1" X="100" Y="200"/>
+        </Component>
+        
+        <Component Name="GND2" Type="GND" X="320" Y="200">
+          <Pin Name="1" Number="1" X="320" Y="200"/>
+        </Component>
+      </Components>
+      
+      <Nets>
+        <Net Name="VCC" ID="1">
+          <Node Component="U1" Pin="1"/>
+          <Node Component="R1" Pin="1"/>
+          <Wire StartX="100" StartY="100" EndX="180" EndY="100" Width="2"/>
+        </Net>
+        
+        <Net Name="NET1" ID="2">
+          <Node Component="R1" Pin="2"/>
+          <Node Component="D1" Pin="1"/>
+          <Wire StartX="220" StartY="100" EndX="300" EndY="100" Width="2"/>
+        </Net>
+        
+        <Net Name="GND" ID="3">
+          <Node Component="U1" Pin="2"/>
+          <Node Component="D1" Pin="2"/>
+          <Node Component="GND1" Pin="1"/>
+          <Node Component="GND2" Pin="1"/>
+          <Wire StartX="100" StartY="150" EndX="100" EndY="200" Width="2"/>
+          <Wire StartX="340" StartY="100" EndX="340" EndY="150" Width="2"/>
+          <Wire StartX="340" StartY="150" EndX="320" EndY="200" Width="2"/>
+        </Net>
+      </Nets>
+      
+      <Labels>
+        <Label X="100" Y="70" Text="5V"/>
+        <Label X="200" Y="70" Text="220Ω"/>
+        <Label X="320" Y="70" Text="LED"/>
+        <Label X="100" Y="230" Text="GND"/>
+      </Labels>
+    </Sheet>
+  </Schematic>
+  
+  <SimulationSettings>
+    <AnalysisType>Transient</AnalysisType>
+    <StartTime>0</StartTime>
+    <EndTime>1</EndTime>
+    <TimeStep>0.0001</TimeStep>
+    <MaxStepSize>0.001</MaxStepSize>
+    <Tolerance>1e-6</Tolerance>
+    <UseInitialConditions>true</UseInitialConditions>
+    <PreserveBias>false</PreserveBias>
+    <AutoTimeStep>true</AutoTimeStep>
+  </SimulationSettings>
+  
+  <Libraries>
+    <Library Name="Resistors" Enabled="true"/>
+    <Library Name="Capacitors" Enabled="true"/>
+    <Library Name="Inductors" Enabled="true"/>
+    <Library Name="Diodes" Enabled="true"/>
+    <Library Name="LEDs" Enabled="true"/>
+    <Library Name="Power" Enabled="true"/>
+  </Libraries>
+</ProteusProject>
